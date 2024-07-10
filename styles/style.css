@@ -24,7 +24,7 @@ header {
     top: 0;                                         /* Posiciona el header en la parte superior de la ventana */
     left: 0;                                        /* Alinea el header a la izquierda de la ventana */
     width: 100%;                                    /* Establece que el header ocupe el ancho completo de la ventana */
-    height: 15vh;
+    height: 10vh;
     background-image: url('../images/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,6 +33,7 @@ header {
     z-index: 1000;                                  /* Capa de apilamiento para asegurar que el header esté por encima de otros elementos */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);       /* Sombra para dar profundidad al header */
     transition: background-color 0.3s;              /* Transición suave para el cambio de color de fondo */
+    border-bottom: 0.3rem solid #000;
 }
 
 nav ul {
@@ -58,9 +59,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: #ffffff;  
+    background: #ffffff85;  
     color: rgb(0, 0, 0);
     border-radius: 5px;
+    border: 0.1rem solid #000;
 }
 
 section {
@@ -104,14 +106,6 @@ h2{
     line-height: 1.3;                               /* Espacio interlineal */
 }
 
-.perfil-texto p:hover{
-    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para el efecto de digitación */
-    line-height: 1;                               /* Espacio interlineal */
-    font-weight: bold;
-    color: rgba(36, 194, 15, 0.9); /* Color de texto con transparencia */
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con transparencia */
-}
-
 .perfil-imagen {
     flex-shrink: 0;             /* Evita que la imagen se encoja */
     width: 55%;                 /* Ancho automático basado en el tamaño de la imagen */
@@ -133,11 +127,23 @@ h2{
 }
 
 .educacion-item {
-    flex: 1; /* Cada div ocupa el mismo espacio */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    background-color: #acaddf75;
+    border: 0.2rem solid #fff; /* Ajusta el grosor y el color del borde según tus necesidades */
+    border-radius: 1vw;
+    flex: 1; /* Cada div ocupa el mismo espacio */
+    padding: 1rem; /* Opcional: añade un poco de padding para que el contenido no esté pegado al borde */
+    margin: 0.5rem; /* Opcional: añade margen para separar los elementos entre sí */
+}
+
+.perfil-texto p:hover, .educacion-item:hover {
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para el efecto de digitación */
+    line-height: 1;                               /* Espacio interlineal */
+    font-weight: bold;
+    color: rgba(36, 194, 15, 0.9); /* Color de texto con transparencia */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con transparencia */
 }
 
 .educacion-item img {
@@ -151,12 +157,10 @@ h2{
 }
 
 .educacion-item ul {
-    list-style-type: none;
     padding: 0;
-    text-align: justify;    /* Justificar el texto del parráfo */
     line-height: 1;       /* Espacio interlineal */
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 13%;
+    margin-right: 4%;
 }
 
 .educacion-item ul li {
@@ -164,14 +168,12 @@ h2{
 }
 
 #educacion p {
-    text-align: center;
     margin-top: 1rem;
 }
 
 #certificaciones{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
-
 }
 
 .certificacion-content {
@@ -180,9 +182,8 @@ h2{
     align-items: center;              /* Centra verticalmente los elementos hijos */
     margin-top: 3rem;                 /* Espacio antes del div */
     margin-bottom: 3rem;              /* Espacio después del div */
-
     max-width: 100%;        /* Ancho máximo deseado */
-    max-height: 20vh;           /* Altura del div al 40% de la altura del viewport */
+    max-height: 30vh;           /* Altura del div al 40% de la altura del viewport */
     padding: 1vw;           /* Espacio interno del contenido del div (ejemplo) */
     margin: 0 auto;         /* Centra el contenedor horizontalmente */
     overflow: hidden;       /* Oculta el contenido que se desborde */
@@ -193,6 +194,9 @@ h2{
     padding-right: 2rem;  /* Espaciado a la derecha para separar del segundo div */
 }
 
+.certificacion-texto h3{
+    font-size: 1.4rem;;
+}
 
 .certificacion-carrusel {
     display: flex;
@@ -206,7 +210,6 @@ h2{
     overflow: hidden;       /* Oculta el contenido que se desborde */
     margin-bottom: 1vh;     /* Ajusta el valor según el espacio deseado entre cada div */
 }
-
 
 .list {
     display: flex;;
@@ -301,6 +304,11 @@ h2{
     background-color: #c7dd00; /* Color de fondo al pasar el mouse */
 }
 
+.line {
+    border-bottom: 1px solid #fff; /* Línea blanca horizontal */
+    width: 100%; /* Ajusta el ancho de la línea según sea necesario */
+}
+
 /* Diseño flexible con Flexbox */
 #proyectos {
     display: flex;
@@ -319,8 +327,32 @@ h2{
 }
 
 #contacto{
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%);
+    background-image: url("../images/contacto.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contacto {
+    margin-left: 3rem;
+    text-align: left;
+    line-height: 1;
+}
+
+.contacto p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.contacto a {
+    color: #10a7f8;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contacto a:hover {
+    text-decoration: underline;
 }
 
 footer {
@@ -328,6 +360,7 @@ footer {
     padding: 0.625rem 0; /* 10px */
     background: rgb(71, 88, 98);
     color: #fff;
+    border-top: 0.3rem solid #000;
 }
 
 /* Imágenes responsivas */
@@ -347,17 +380,32 @@ img {
         font-size: 0.875rem; /* 14px */
     }
 
+    header{
+        position: absolute;
+    }
+    header, nav ul {
+        height: 33vh;
+    }
+    
     nav ul {
-        flex-direction: column;
+        display: grid;
         align-items: center;
     }
-
+    
     nav ul li {
         margin: 0.3125rem 0; /* 5px */
     }
 
     header h1 {
         font-size: 1.25rem; /* 20px */
+    }
+
+    #perfil {
+        margin-top: 13rem;
+    }
+
+    .perfil-texto{
+        padding-bottom: 3rem;
     }
 
     .perfil-info, .certificacion-content {
@@ -367,6 +415,10 @@ img {
     .perfil-imagen, .certificacion-carrusel{
         display: grid; /* Utiliza flexbox para alinear los elementos hijos */
         width: 100%;
+    }
+
+    .educacion-container {
+        display: grid;
     }
 
     .zoomed {
@@ -388,12 +440,32 @@ img {
         font-size: 1rem; /* 16px */
     }
 
+    header{
+        position: absolute;
+    }
+    header, nav ul {
+        height: 70vh;
+    }
+    
+    nav ul {
+        display: grid;
+        align-items: center;
+    }
+    
     nav ul li {
-        margin: 0 0.9375rem; /* 15px */
+        margin: 0.3125rem 0; /* 5px */
     }
 
-    main {
-        padding: 1.25rem; /* 20px */
+    header h1 {
+        font-size: 1.25rem; /* 20px */
+    }
+
+    #perfil {
+        margin-top: 13rem;
+    }
+
+    .perfil-texto{
+        padding-bottom: 3rem;
     }
 
     .perfil-info, .certificacion-content {
@@ -408,11 +480,11 @@ img {
     .educacion-container {
         display: grid;
     }
-
+    
     .zoomed {
         display: none;
     }
-
+    
     .certificacion-content{
         display: grid;
         min-height: auto;
@@ -431,6 +503,4 @@ img {
     nav ul li {
         margin: 0 1.25rem; /* 20px */
     }
-
-
 }
