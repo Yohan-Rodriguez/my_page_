@@ -1,0 +1,441 @@
+/* 
+   El selector universal (*) aplica estilos a todos los elementos del documento.
+   Esto es útil para asegurar que todos los elementos comiencen con los mismos estilos básicos,
+   eliminando cualquier margen o padding predeterminado que los navegadores suelen aplicar.
+*/
+* {
+    margin: 0;                /* Elimina el margen predeterminado de todos los elementos */
+    padding: 0;               /* Elimina el padding predeterminado de todos los elementos */
+    box-sizing: border-box;   /* Cambia el modelo de caja para incluir el padding y el borde dentro del ancho y alto del elemento */
+}
+
+html {
+    font-size: 100%; /*Tamaño de fuente base del documento al 100%, equivalente a 16px (tamaño predeterminado del navegador) */
+}
+
+body {
+    font-family: Arial, sans-serif;  /* Familia de fuentes para el cuerpo del documento */
+    line-height: 1.6;                /* Altura de línea para mejorar la legibilidad */
+    color: #ffffff;                /* Color de texto principal */
+}
+
+header {
+    position: fixed;                                /* Posicionamiento fijo para que el header permanezca en la parte superior de la ventana */
+    top: 0;                                         /* Posiciona el header en la parte superior de la ventana */
+    left: 0;                                        /* Alinea el header a la izquierda de la ventana */
+    width: 100%;                                    /* Establece que el header ocupe el ancho completo de la ventana */
+    height: 15vh;
+    background-image: url('../2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0.625rem 0;                            /* Espaciado interior del header (10px arriba y abajo, 0 a los lados) */
+    text-align: center;                             /* Centra el contenido del header */
+    z-index: 1000;                                  /* Capa de apilamiento para asegurar que el header esté por encima de otros elementos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);       /* Sombra para dar profundidad al header */
+    transition: background-color 0.3s;              /* Transición suave para el cambio de color de fondo */
+}
+
+header.transparent {
+    background-image: url('../2.jpg');
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 0.625rem; /* 10px */
+}
+
+nav ul li a {
+    color: #ffffff;                                  /* Color de texto del header */
+    text-decoration: none;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: #ffffff;  
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+section {
+    padding: 3rem;  /* 30px */ /* Relleno dentro de cada sección */
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra
+                                                           desenfoque de la sombra, Color de la sombra*/
+}
+
+h2{
+    margin-bottom: 1.8rem;    /* Separación entre el título de la sección y su contenido */
+    margin-top: 2rem;
+}
+
+#perfil{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(73,4,97,1) 55%, rgba(14,6,79,1) 96%);
+}
+
+.perfil-info {
+    width: 95%;
+    margin: auto;
+    display: flex; /* Utiliza flexbox para alinear los elementos hijos */
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    align-items: center; /* Centra verticalmente los elementos hijos */
+    
+}
+
+.perfil-texto {
+    flex: 1; /* El primer div (texto) ocupa todo el espacio restante */
+    padding-right: 1rem; /* Espaciado a la derecha para separar del segundo div */
+}
+
+.perfil-texto p {
+    padding: 2vh; /* Convertido a vh */
+    border-radius: 2vh; /* Convertido a vh */
+    color: rgba(0, 0, 0, 0.9); /* Color de texto con transparencia */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo negro con transparencia */
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.9); /* Convertido a rem */
+    white-space: pre-wrap;                          /* Mantener los saltos de línea */
+    text-align: justify;                            /* Justificar el texto del parráfo */
+    line-height: 1.3;                               /* Espacio interlineal */
+}
+
+.perfil-texto p:hover{
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para el efecto de digitación */
+    line-height: 1;                               /* Espacio interlineal */
+    font-weight: bold;
+    color: rgba(36, 194, 15, 0.9); /* Color de texto con transparencia */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con transparencia */
+}
+
+.perfil-imagen {
+    flex-shrink: 0;             /* Evita que la imagen se encoja */
+    width: 55%;                 /* Ancho automático basado en el tamaño de la imagen */
+    display: flex;              /* Utiliza flexbox para alinear la imagen verticalmente */
+    justify-content: center;    /* Centra horizontalmente la imagen */
+    align-items: center;        /* Centra verticalmente la imagen */
+}
+
+#educacion {
+    padding-top: 2rem;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%);
+}
+
+.educacion-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; /* Espacio entre los divs */
+}
+
+.educacion-item {
+    flex: 1; /* Cada div ocupa el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.educacion-item img {
+    align-items: center;         /* Alinear verticalmente al centro */
+    justify-content: center;     /* Alinear horizontalmente al centro */
+    max-width: 100%;             /* Ajustar al ancho máximo del contenedor */
+    max-height: 100%;            /* Ajustar al alto máximo del contenedor */
+    overflow: hidden;            /* Ocultar el desbordamiento de la imagen */
+    background-color: #fff;
+    object-fit: cover;           /* Cubrir el contenedor manteniendo la relación de aspecto */
+}
+
+.educacion-item ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: justify;    /* Justificar el texto del parráfo */
+    line-height: 1;       /* Espacio interlineal */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.educacion-item ul li {
+    margin-bottom: 0.5rem;
+}
+
+#educacion p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#certificaciones{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
+
+}
+
+.certificacion-content {
+    display: flex;
+    justify-content: space-between;   /* Distribuye los elementos con espacio entre ellos */
+    align-items: center;              /* Centra verticalmente los elementos hijos */
+    margin-top: 3rem;                 /* Espacio antes del div */
+    margin-bottom: 3rem;              /* Espacio después del div */
+
+    max-width: 100%;        /* Ancho máximo deseado */
+    max-height: 20vh;           /* Altura del div al 40% de la altura del viewport */
+    padding: 1vw;           /* Espacio interno del contenido del div (ejemplo) */
+    margin: 0 auto;         /* Centra el contenedor horizontalmente */
+    overflow: hidden;       /* Oculta el contenido que se desborde */
+}
+
+.certificacion-texto {
+    flex: 1;              /* El primer div (texto) ocupa todo el espacio restante */
+    padding-right: 2rem;  /* Espaciado a la derecha para separar del segundo div */
+}
+
+
+.certificacion-carrusel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    height: 50vh;           /* Altura del div al 40% de la altura del viewport */
+    padding: 1vw;           /* Espacio interno del contenido del div (ejemplo) */
+    margin: 0 auto;         /* Centra el contenedor horizontalmente */
+    overflow: hidden;       /* Oculta el contenido que se desborde */
+    margin-bottom: 1vh;     /* Ajusta el valor según el espacio deseado entre cada div */
+}
+
+
+.list {
+    display: flex;;
+    gap: 1vw;
+    padding: 1vw;  
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.list {
+    /* ... */
+
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar in IE and Edge */
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar in webkit */
+.list::-webkit-scrollbar {
+    display: none;
+}
+
+.item {
+    flex-shrink: 0;               /* Evita que el elemento se reduzca cuando el contenedor flex es más pequeño que el tamaño del elemento. */
+    width: 40vh;                  /* Ancho del elemento en 50 unidades de altura de la ventana gráfica (viewport height). */
+    height: 20vh;                 /* Altura del elemento en 25 unidades de altura de la ventana gráfica. */
+    background-color: rgb(255, 255, 255, 0.4);     /* Color de fondo del elemento a blanco. */
+    scroll-snap-align: center;    /* Alinea el elemento en el centro del contenedor cuando se hace scroll con scroll snapping. */
+}
+
+.item:hover {
+    background-color: #f0f0f0;
+}
+
+.content {
+    display: flex;
+    align-items: center;     /* Alinear verticalmente al centro */
+    justify-content: center; /* Alinear horizontalmente al centro */
+    width: 100%;             /* Ajustar al ancho máximo del contenedor */
+    height: 100%;            /* Ajustar al alto máximo del contenedor */
+    overflow: hidden;        /* Ocultar el desbordamiento de la imagen */
+    font-family: sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.content img {
+    max-width: 100%;     /* Ajustar imagen al ancho máximo del contenedor */
+    max-height: 100%;    /* Ajustar imagen al alto máximo del contenedor */
+    height: auto;        /* Mantener la proporción de la imagen */
+    width: auto;         /* Mantener la proporción de la imagen */
+    object-fit: cover;   /* Cubrir el contenedor manteniendo la relación de aspecto */
+}
+
+.zoomable-image {
+    cursor: pointer;                   /* Cambia el cursor al hacer hover */
+    transition: transform 0.3s ease;   /* Agrega una transición suave */
+}
+
+.zoomed {
+    position: fixed;
+    transform: scale(0.8);  /* Aumenta el tamaño al hacer clic */
+    top: 10vh;               /* Posición fija desde la parte superior */
+    left: 25vw;             /* Posición fija desde la izquierda */
+    z-index: 1000;          /* Z-index alto para estar sobre otros elementos */
+}
+
+.button {
+    background-color: rgba(36, 194, 15, 0.9);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.button--previous {
+    left: 0;
+}
+
+.button--next {
+    right: 0;
+}
+
+.button:hover {
+    background-color: #c7dd00; /* Color de fondo al pasar el mouse */
+}
+
+/* Diseño flexible con Flexbox */
+#proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: rgba(0,205,55,1);
+    background: linear-gradient(90deg, rgba(0,205,55,1) 42%, rgba(27,239,179,1) 69%, rgba(0,107,162,1) 88%);
+}
+
+.project {
+    flex: 1 1 18.75rem; /* 300px */
+    margin: 0.625rem; /* 10px */
+    padding: 1.25rem; /* 20px */
+    background: #fff;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
+}
+
+#contacto{
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%);
+}
+
+footer {
+    text-align: center;
+    padding: 0.625rem 0; /* 10px */
+    background: rgb(71, 88, 98);
+    color: #fff;
+}
+
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+/* Estilos responsivos */
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 37.5rem) { /* 600px */
+    body {
+        font-size: 0.875rem; /* 14px */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.3125rem 0; /* 5px */
+    }
+
+    header h1 {
+        font-size: 1.25rem; /* 20px */
+    }
+
+    .perfil-info, .certificacion-content {
+        display: grid; /* Utiliza flexbox para alinear los elementos hijos */
+    }
+
+    .perfil-imagen, .certificacion-carrusel{
+        display: grid; /* Utiliza flexbox para alinear los elementos hijos */
+        width: 100%;
+    }
+
+    .zoomed {
+        display: none;
+    }
+
+    .certificacion-content{
+        display: grid;
+        min-height: auto;
+        min-width: auto;
+        max-width: 100%;             /* Ajustar al ancho máximo del contenedor */
+        max-height: 100%;            /* Ajustar al alto máximo del contenedor */
+    }
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 37.5625rem) and (max-width: 64rem) { /* 601px - 1024px */
+    body {
+        font-size: 1rem; /* 16px */
+    }
+
+    nav ul li {
+        margin: 0 0.9375rem; /* 15px */
+    }
+
+    main {
+        padding: 1.25rem; /* 20px */
+    }
+
+    .perfil-info, .certificacion-content {
+        display: grid; /* Utiliza flexbox para alinear los elementos hijos */
+    }
+
+    .perfil-imagen, .certificacion-carrusel{
+        display: grid; /* Utiliza flexbox para alinear los elementos hijos */
+        width: 100%;    
+    }
+
+    .educacion-container {
+        display: grid;
+    }
+
+    .zoomed {
+        display: none;
+    }
+
+    .certificacion-content{
+        display: grid;
+        min-height: auto;
+        min-width: auto;
+        max-width: 100%;             /* Ajustar al ancho máximo del contenedor */
+        max-height: 100%;            /* Ajustar al alto máximo del contenedor */
+    }
+}
+
+/* Estilos para pantallas grandes (ordenadores) */
+@media (min-width: 64.0625rem) { /* 1025px */
+    body {
+        font-size: 1.125rem; /* 18px */
+    }
+
+    nav ul li {
+        margin: 0 1.25rem; /* 20px */
+    }
+
+
+}
