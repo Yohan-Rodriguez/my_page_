@@ -25,7 +25,7 @@ header {
     left: 0;                                        /* Alinea el header a la izquierda de la ventana */
     width: 100%;                                    /* Establece que el header ocupe el ancho completo de la ventana */
     height: 15vh;
-    background-image: url('../2.jpg');
+    background-image: url('../images/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0.625rem 0;                            /* Espaciado interior del header (10px arriba y abajo, 0 a los lados) */
@@ -34,11 +34,6 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);       /* Sombra para dar profundidad al header */
     transition: background-color 0.3s;              /* Transición suave para el cambio de color de fondo */
 }
-
-header.transparent {
-    background-image: url('../2.jpg');
-}
-
 
 nav ul {
     display: flex;
