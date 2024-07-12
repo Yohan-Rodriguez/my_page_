@@ -67,7 +67,7 @@ nav ul li a:hover {
 
 section {
     padding: 3rem;  /* 30px */ /* Relleno dentro de cada sección */
-    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra
+    box-shadow: -2rem 1rem 2rem rgba(255, 255, 255, 1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra
                                                            desenfoque de la sombra, Color de la sombra*/
 }
 
@@ -78,7 +78,7 @@ h2{
 
 #perfil{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(73,4,97,1) 55%, rgba(14,6,79,1) 96%);
+    background: linear-gradient(-90deg, rgba(2,0,36,1) 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
 }
 
 .perfil-info {
@@ -116,7 +116,7 @@ h2{
 #educacion {
     padding-top: 2rem;
     background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%);
+    background: radial-linear(90deg, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%);
 }
 
 .educacion-container {
@@ -153,6 +153,7 @@ h2{
     overflow: hidden;            /* Ocultar el desbordamiento de la imagen */
     background-color: #fff;
     object-fit: cover;           /* Cubrir el contenedor manteniendo la relación de aspecto */
+    border-radius: 1vw;
 }
 
 .educacion-item ul {
@@ -283,6 +284,7 @@ h2{
     background-color: rgba(36, 194, 15, 0.9);
     color: white;
     border: none;
+    border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
     position: absolute;
@@ -308,21 +310,25 @@ h2{
     width: 100%; /* Ajusta el ancho de la línea según sea necesario */
 }
 
-/* Diseño flexible con Flexbox */
 #proyectos {
     background: rgba(0, 205, 55, 1);
     background: linear-gradient(90deg, rgba(0, 205, 55, 1) 42%, rgba(27, 239, 179, 1) 69%, rgba(0, 107, 162, 1) 88%);
+    &.blue {
+        background-color: #428aa6;
+      }
 }
 
 .proyectos-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    overflow: hidden;
     width: 100%;
     height: 60vh;
-    position: relative; /* Para mantener la posición relativa del contenedor */
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: background .4s ease-in;
+    transform-style: preserve-3d;
 }
 
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
@@ -332,14 +338,16 @@ input[type=radio] {
 }
 
 .cards {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60vw; /* Asegura que haya suficiente espacio para todas las tarjetas */
+    width: 45vw; /* Asegura que haya suficiente espacio para todas las tarjetas */
     transition: transform 0.4s ease; /* Para la animación suave */
 }
 
 .card {
+    position: absolute;
     flex: 0 0 33.33%; /* Cada tarjeta ocupa un tercio del ancho total */
     transition: transform 0.4s ease;
     cursor: pointer;
@@ -348,64 +356,34 @@ input[type=radio] {
     align-items: center;
 }
 
-img {
+label img {
     width: 100%;
     height: 100%;
-    border-radius: 1vw;
     object-fit: cover;
+    display: block; /* Asegura que la imagen se muestre como bloque */
 }
 
-/* Si el radio button con el id "item-1" está seleccionado, ajusta el estilo de .cards #song-3 */
-/* Si el radio button con el id "item-2" está seleccionado, ajusta el estilo de .cards #song-1 */
-/* Si el radio button con el id "item-3" está seleccionado, ajusta el estilo de .cards #song-2 */
-#item-1:checked ~ .cards #song-3,
-#item-2:checked ~ .cards #song-1,
-#item-3:checked ~ .cards #song-2 {
-    transform: translateX(-40%) scale(0.8); /* Mueve el elemento a la izquierda y reduce su tamaño */
-    opacity: 0.4; /* Reduce la opacidad para hacerlo más transparente */
-    z-index: 0; /* Envía el elemento al fondo */
-}
-
-/* Si el radio button con el id "item-1" está seleccionado, ajusta el estilo de .cards #song-2 */
-/* Si el radio button con el id "item-2" está seleccionado, ajusta el estilo de .cards #song-3 */
-/* Si el radio button con el id "item-3" está seleccionado, ajusta el estilo de .cards #song-1 */
-#item-1:checked ~ .cards #song-2,
-#item-2:checked ~ .cards #song-3,
-#item-3:checked ~ .cards #song-1 {
-    transform: translateX(40%) scale(0.8); /* Mueve el elemento a la derecha y reduce su tamaño */
-    opacity: 0.4; /* Reduce la opacidad para hacerlo más transparente */
-    z-index: 0; /* Envía el elemento al fondo */
-}
-
-/* Si el radio button con el id "item-1" está seleccionado, ajusta el estilo de .cards #song-1 */
-/* Si el radio button con el id "item-2" está seleccionado, ajusta el estilo de .cards #song-2 */
-/* Si el radio button con el id "item-3" está seleccionado, ajusta el estilo de .cards #song-3 */
-#item-1:checked ~ .cards #song-1,
-#item-2:checked ~ .cards #song-2,
-#item-3:checked ~ .cards #song-3 {
-    transform: translateX(0) scale(1); /* Centra el elemento y restablece su tamaño original */
-    opacity: 1; /* Hace el elemento completamente opaco */
-    z-index: 1; /* Trae el elemento al frente */
-
+#item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
+    transform: translatex(-40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
+  
+  #item-1:checked ~ .cards #song-2, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
+    transform: translatex(40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
+  
+  #item-1:checked ~ .cards #song-1, #item-2:checked ~ .cards #song-2, #item-3:checked ~ .cards #song-3 {
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+    
     img {
-        box-shadow: 0vw 0vw 0.5vw 0vw rgba(81, 81, 81, 0.47); /* Añade una sombra alrededor de la imagen */
-    }
-}
-
-/* Si el radio button con el id "item-2" está seleccionado, ajusta el estilo de .player #test */
-#item-2:checked ~ .player #test {
-    transform: translateY(0); /* Mueve el elemento a su posición original en el eje Y */
-}
-
-/* Si el radio button con el id "item-1" está seleccionado, ajusta el estilo de .player #test */
-#item-1:checked ~ .player #test {
-    transform: translateY(-4vh); /* Mueve el elemento hacia arriba en el eje Y */
-}
-
-/* Si el radio button con el id "item-3" está seleccionado, ajusta el estilo de .player #test */
-#item-3:checked ~ .player #test {
-    transform: translateY(-8vh); /* Mueve el elemento aún más hacia arriba en el eje Y */
-}
+        box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+      }
+  }
 
 #contacto{
     background-image: url("../images/contacto.jpg");
