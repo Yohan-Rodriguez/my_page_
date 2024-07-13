@@ -340,6 +340,7 @@ main#carousel {
     --middle: 5;
     --position: 1;
     pointer-events: none;
+    position: relative;
 }
 
 div.item {
@@ -366,6 +367,29 @@ div.item:nth-of-type(7) { --offset: 7; }
 div.item:nth-of-type(1), div.item:nth-of-type(2), div.item:nth-of-type(3), div.item:nth-of-type(4), div.item:nth-of-type(5), div.item:nth-of-type(6), div.item:nth-of-type(7) {
     background: rgba(0, 0, 0, 0);
 }
+
+.proyectos-container input {
+    appearance: none; /* Eliminar el estilo predeterminado */
+    width: 90%; /* Asegura que ocupen el ancho completo de su celda */
+    height: 3rem; /* Altura cómoda para hacer clic */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    border: 2px solid rgba(0, 107, 162, 1); /* Borde azul */
+    border-radius: 1rem; /* Bordes redondeados */
+    margin: 0.5rem 0; /* Espacio vertical entre inputs */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el input */
+}
+
+.proyectos-container input:checked {
+    background-color: rgb(0, 0, 0); /* Fondo verde cuando está seleccionado */
+    color: #fff; /* Texto blanco */
+}
+
+.proyectos-container input:hover {
+    background-color: rgba(81, 88, 83, 0.8); /* Fondo verde oscuro al pasar el mouse */
+    transform: scale(1.05); /* Ligera animación al pasar el mouse */
+}
+
 
 input:nth-of-type(1) {
     grid-column: 2 / 3;
@@ -423,24 +447,32 @@ input:nth-of-type(7):checked ~ main#carousel {
     --position: 7;
 }
 
+div.item {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+main#carousel .button {
+    display: none;
+}
+
+
 .body-page {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} 
 
 .boton {
-    width: auto;
+    width: 21%;
+    height: 21rem;
     text-decoration: none;
-    color: rgb(255, 251, 0);
-    background-color: #f01b1b;
+    background-color: #ffffff00;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    margin-bottom: -6rem; /* Subir o bajar el botón */
-    border-bottom-color: #222;
+    margin-bottom: -28rem; /* Subir o bajar el botón */
     border-bottom-width: 2px;
-    border-bottom-style: solid;
-    align-self: center;
     z-index: 1;
 }
 
@@ -481,6 +513,7 @@ input:nth-of-type(7):checked ~ main#carousel {
     width: 70%;
     text-align: justify;
 }
+
 
 
 #contacto{
