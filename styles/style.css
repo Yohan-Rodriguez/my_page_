@@ -243,10 +243,6 @@ h2{
     scroll-snap-align: center;    /* Alinea el elemento en el centro del contenedor cuando se hace scroll con scroll snapping. */
 }
 
-.item:hover {
-    background-color: #f0f0f0;
-}
-
 .content {
     display: flex;
     align-items: center;     /* Alinear verticalmente al centro */
@@ -285,7 +281,7 @@ h2{
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;  /* padding en la parte superior e inferior del elemento ypadding en los lados izquierdo y derecho del elemento. */
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -302,7 +298,7 @@ h2{
 }
 
 .button:hover {
-    background-color: #c7dd00; /* Color de fondo al pasar el mouse */
+    background-color: #25dd00; /* Color de fondo al pasar el mouse */
 }
 
 .line {
@@ -311,8 +307,10 @@ h2{
 }
 
 #proyectos {
-    background: rgba(0, 205, 55, 1);
-    background: linear-gradient(90deg, rgba(0, 205, 55, 1) 42%, rgba(27, 239, 179, 1) 69%, rgba(0, 107, 162, 1) 88%);
+    background-color: #dcdefd;
+    color: #000000;
+    /* background: rgba(0, 205, 55, 1);
+    background: linear-gradient(90deg, rgba(0, 205, 55, 1) 42%, rgba(27, 239, 179, 1) 69%, rgba(0, 107, 162, 1) 88%); */
 }
 
 .proyectos-container {
@@ -348,10 +346,9 @@ div.item {
     position: absolute;
     width: 20vw; /* Cambiado a unidades responsivas */
     height: 50vh; /* Cambiado a unidades responsivas */
-    background-color: coral;
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
-    transition: all 0.25s linear;
+    transition: all 0.25s ease;
     transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-20vw * var(--r))); /* Cambiado a unidades responsivas */
     z-index: calc((var(--position) - var(--abs)));
 }
@@ -365,7 +362,7 @@ div.item:nth-of-type(6) { --offset: 6; }
 div.item:nth-of-type(7) { --offset: 7; }
 
 div.item:nth-of-type(1), div.item:nth-of-type(2), div.item:nth-of-type(3), div.item:nth-of-type(4), div.item:nth-of-type(5), div.item:nth-of-type(6), div.item:nth-of-type(7) {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);    
 }
 
 .proyectos-container input {
@@ -373,7 +370,7 @@ div.item:nth-of-type(1), div.item:nth-of-type(2), div.item:nth-of-type(3), div.i
     width: 90%; /* Asegura que ocupen el ancho completo de su celda */
     height: 3rem; /* Altura cómoda para hacer clic */
     background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
-    border: 2px solid rgba(0, 107, 162, 1); /* Borde azul */
+    border: 2px solid rgb(0, 0, 0); /* Borde azul */
     border-radius: 1rem; /* Bordes redondeados */
     margin: 0.5rem 0; /* Espacio vertical entre inputs */
     transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
@@ -381,12 +378,12 @@ div.item:nth-of-type(1), div.item:nth-of-type(2), div.item:nth-of-type(3), div.i
 }
 
 .proyectos-container input:checked {
-    background-color: rgb(0, 0, 0); /* Fondo verde cuando está seleccionado */
+    background-color: rgba(36, 194, 15, 1); /* Fondo verde oscuro al pasar el mouse */
     color: #fff; /* Texto blanco */
 }
 
 .proyectos-container input:hover {
-    background-color: rgba(81, 88, 83, 0.8); /* Fondo verde oscuro al pasar el mouse */
+    background-color: rgba(36, 194, 15, 0.6); /* Fondo verde cuando está seleccionado */
     transform: scale(1.05); /* Ligera animación al pasar el mouse */
 }
 
@@ -450,6 +447,7 @@ input:nth-of-type(7):checked ~ main#carousel {
 div.item {
     cursor: pointer;
     pointer-events: auto;
+    border-radius: 2rem;
 }
 
 
@@ -478,12 +476,12 @@ main#carousel .button {
 
 #vmodal {
     z-index: 2;
-    background-color: #ffffff;
+    background-color: #000;
     color: #000000;
     position: fixed;
     top: 0;
     right: -100vw;
-    width: 75vw;
+    width: 80vw;
     height: 100vh;
     transition: all 0.5s;
     font-family: 'Roboto';
@@ -502,16 +500,21 @@ main#carousel .button {
     top: 0;
     right: 0;
     padding: 0.5rem;
-    background-color: tomato;
+    background-color: rgb(255, 0, 0);
     color: #fff;
     text-decoration: none;
     font-size: 0.7rem;
+    font-weight: bold;
     box-sizing: border-box;
 }
 
 .parrafo {
-    width: 70%;
+    color: #fff;
+    width: 90%;
     text-align: justify;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    margin-left: 2rem;
 }
 
 
