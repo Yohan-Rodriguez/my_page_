@@ -14,11 +14,10 @@ html {
 }
 
 body {
-    background-color: #a9adf8;
-    color: #000000;
+    background-color: #880303;
     font-family: Arial, sans-serif;  /* Familia de fuentes para el cuerpo del documento */
     line-height: 1.6;                /* Altura de línea para mejorar la legibilidad */
-    /* color: #ffffff;                 */
+    color: #ffffff;                
     /* Color de texto principal */
 }
 
@@ -71,7 +70,7 @@ nav ul li a:hover {
 
 section {
     padding: 3rem;  /* 30px */ /* Relleno dentro de cada sección */
-    box-shadow: -2rem 1rem 2rem rgba(255, 255, 255, 1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra                                               desenfoque de la sombra, Color de la sombra*/
+    box-shadow: -2rem 1rem 2rem rgba(255, 255, 255, 0.1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra                                               desenfoque de la sombra, Color de la sombra*/
 }
 
 h2{
@@ -102,7 +101,6 @@ h2{
 .perfil-texto p {
     padding: 2vh; /* Convertido a vh */
     border-radius: 2vh; /* Convertido a vh */
-    background-color: #05990036;
     box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.9); /* Convertido a rem */
     white-space: pre-wrap;                          /* Mantener los saltos de línea */
     text-align: justify;                            /* Justificar el texto del parráfo */
@@ -131,6 +129,11 @@ h2{
     gap: 1rem; /* Espacio entre los divs */
 }
 
+.perfil-texto p, .educacion-item, .item {
+    background-color: #bdacac;
+    color: #000;
+}
+
 .educacion-item {
     display: flex;
     flex-direction: column;
@@ -140,7 +143,7 @@ h2{
     flex: 1; /* Cada div ocupa el mismo espacio */
     padding: 1rem; /* Opcional: añade un poco de padding para que el contenido no esté pegado al borde */
     margin: 0.5rem; /* Opcional: añade margen para separar los elementos entre sí */    
-    background-color: #05990036;
+    
 }
 
 .perfil-texto p:hover, .educacion-item:hover {
@@ -149,6 +152,7 @@ h2{
     font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para el efecto de digitación */
     line-height: 1;                               /* Espacio interlineal */
     font-weight: bold;
+    text-align: left;
     border: 0.2rem solid #ffffff; /* Ajusta el grosor y el color del borde según tus necesidades */
 }
 
@@ -225,6 +229,7 @@ div.item {
     transition: all 0.25s ease;
     transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-20vw * var(--r))); /* Cambiado a unidades responsivas */
     z-index: calc((var(--position) - var(--abs)));
+    border: 2px solid rgb(255, 255, 255); /* Borde azul */
 }
 
 div.item:nth-of-type(1) { --offset: 1; }
@@ -393,11 +398,11 @@ main#carousel .button {
 
 
 
-#certificaciones{
+/* #certificaciones{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
     color: #fff;
-}
+} */
 
 .certificacion-content {
     display: flex;
@@ -462,7 +467,8 @@ main#carousel .button {
     flex-shrink: 0;               /* Evita que el elemento se reduzca cuando el contenedor flex es más pequeño que el tamaño del elemento. */
     width: 40vh;                  /* Ancho del elemento en 50 unidades de altura de la ventana gráfica (viewport height). */
     height: 20vh;                 /* Altura del elemento en 25 unidades de altura de la ventana gráfica. */
-    background-color: rgb(255, 255, 255, 0.4);     /* Color de fondo del elemento a blanco. */
+    /* background-color: rgb(255, 255, 255, 0.4);     */
+    border: 0.15rem solid #000000; /* Ajusta el grosor y el color del borde según tus necesidades */
     scroll-snap-align: center;    /* Alinea el elemento en el centro del contenedor cuando se hace scroll con scroll snapping. */
 }
 
@@ -526,7 +532,7 @@ main#carousel .button {
 }
 
 .line {
-    border-bottom: 1px solid #000000; /* Línea blanca horizontal */
+    border-bottom: 1px solid #ffffff; /* Línea blanca horizontal */
     width: 100%; /* Ajusta el ancho de la línea según sea necesario */
 }
 
