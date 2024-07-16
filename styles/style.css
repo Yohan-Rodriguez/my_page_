@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    background-color: #880303;
+    background-color: #7c0202;    
     font-family: Arial, sans-serif;  /* Familia de fuentes para el cuerpo del documento */
     line-height: 1.6;                /* Altura de línea para mejorar la legibilidad */
     color: #ffffff;                
@@ -27,9 +27,10 @@ header {
     left: 0;                                        /* Alinea el header a la izquierda de la ventana */
     width: 100%;                                    /* Establece que el header ocupe el ancho completo de la ventana */
     height: 10vh;
-    background-image: url('../images/header.jpg');
+    background: rgb(71, 88, 98);    
+    /* background-image: url('../images/header.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     padding: 0.625rem 0;                            /* Espaciado interior del header (10px arriba y abajo, 0 a los lados) */
     text-align: center;                             /* Centra el contenido del header */
     z-index: 1000;                                  /* Capa de apilamiento para asegurar que el header esté por encima de otros elementos */
@@ -53,7 +54,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ffffff;                                  /* Color de texto del header */
+    color: #fff;                                  /* Color de texto del header */
     text-decoration: none;
     justify-content: center;
     font-size: 1.8rem;
@@ -68,16 +69,40 @@ nav ul li a:hover {
 }
 
 
+/* Estilo para el mensaje para navegación horizontal en Smartphones*/
+.rotate-message {
+    display: none;  /* Oculto por defecto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white;  /* Texto blanco */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10000;  /* Asegurarse de que esté por encima de otros elementos */
+    font-size: 18px;
+}
+
+/* Mostrar el mensaje en pantallas pequeñas en orientación vertical */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    .rotate-message {
+        display: block;
+    }
+}
+
+
 section {
     padding: 3rem;  /* 30px */ /* Relleno dentro de cada sección */
-    box-shadow: -2rem 1rem 2rem rgba(255, 255, 255, 0.1); /* Desplazamiento horizontal de la sombra, desplazamiento vertical de la sombra                                               desenfoque de la sombra, Color de la sombra*/
+    /* box-shadow: -2rem 1rem 2rem rgba(255, 255, 255, 0.1); */
+    border-bottom: 0.1rem solid #ffffff;
 }
 
 h2{
     margin-bottom: 1.8rem;    /* Separación entre el título de la sección y su contenido */
     margin-top: 2rem;
 }
-
 
 
 /* #perfil{
@@ -115,10 +140,15 @@ h2{
     align-items: center;        /* Centra verticalmente la imagen */
 }
 
+.perfil-imagen img {
+    max-width: 100%;
+    display: block;
+}
 
 
 #educacion {
     padding-top: 2rem;
+    background-color: #880303;
     /* background: rgb(2,0,36);
     background: radial-linear(90deg, rgba(2,0,36,1) 0%, rgba(14,6,79,1) 76%); */
 }
@@ -133,6 +163,8 @@ h2{
     background-color: #bdacac;
     color: #000;
 }
+
+
 
 .educacion-item {
     display: flex;
@@ -200,6 +232,7 @@ h2{
     grid-template-columns: 1fr 4vw 4vw 4vw 4vw 4vw 4vw 4vw 1fr; /* Cambiado a unidades responsivas */
     align-items: center;
     justify-items: center;
+    margin-top: -2rem;
 }
 
 main#carousel {
@@ -216,14 +249,14 @@ main#carousel {
     --middle: 5;
     --position: 1;
     pointer-events: none;
-    position: relative;
+    position: relative;    
 }
 
 div.item {
     overflow: hidden;
     position: absolute;
     width: 20vw; /* Cambiado a unidades responsivas */
-    height: 50vh; /* Cambiado a unidades responsivas */
+    height: 60vh; /* Cambiado a unidades responsivas */
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.25s ease;
@@ -329,6 +362,12 @@ div.item {
     border-radius: 2rem;
 }
 
+.item img{
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
 
 main#carousel .button {
     display: none;
@@ -342,21 +381,24 @@ main#carousel .button {
 } 
 
 .boton {
-    width: 21%;
-    height: 21rem;
+    width: 22%;
+    height: 25.5rem;
     text-decoration: none;
     background-color: #ffffff00;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    margin-bottom: -28rem; /* Subir o bajar el botón */
+    margin-bottom: -24.7rem; /* Subir o bajar el botón */
     border-bottom-width: 2px;
     z-index: 1;
+    border: 2px solid rgb(51, 255, 0); /* Borde azul */
+    border-radius: 2rem;
+
 }
 
 #vmodal {
     z-index: 2;
-    background-color: #000;
-    color: #000000;
+    background-color: #ffffff;
+    border: 0.15rem solid #000000; /* Ajusta el grosor y el color del borde según tus necesidades */
     position: fixed;
     top: 0;
     right: -100vw;
@@ -379,8 +421,10 @@ main#carousel .button {
     top: 0;
     right: 0;
     padding: 0.5rem;
+    margin-left: 1rem;
     background-color: rgb(255, 0, 0);
     color: #fff;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-size: 0.7rem;
     font-weight: bold;
@@ -388,7 +432,7 @@ main#carousel .button {
 }
 
 .parrafo {
-    color: #fff;
+    color: #000000;
     width: 90%;
     text-align: justify;
     margin-top: 3rem;
@@ -398,11 +442,11 @@ main#carousel .button {
 
 
 
-/* #certificaciones{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
-    color: #fff;
-} */
+#certificaciones{
+    background-color: #880303;
+    background: linear-gradient(90deg, #880303 42%, rgba(73,4,97,1) 69%, rgba(14,6,79,1) 888%);
+    border-bottom: none;
+}
 
 .certificacion-content {
     display: flex;
@@ -467,10 +511,11 @@ main#carousel .button {
     flex-shrink: 0;               /* Evita que el elemento se reduzca cuando el contenedor flex es más pequeño que el tamaño del elemento. */
     width: 40vh;                  /* Ancho del elemento en 50 unidades de altura de la ventana gráfica (viewport height). */
     height: 20vh;                 /* Altura del elemento en 25 unidades de altura de la ventana gráfica. */
-    /* background-color: rgb(255, 255, 255, 0.4);     */
     border: 0.15rem solid #000000; /* Ajusta el grosor y el color del borde según tus necesidades */
     scroll-snap-align: center;    /* Alinea el elemento en el centro del contenedor cuando se hace scroll con scroll snapping. */
 }
+
+
 
 .content {
     display: flex;
@@ -532,7 +577,7 @@ main#carousel .button {
 }
 
 .line {
-    border-bottom: 1px solid #ffffff; /* Línea blanca horizontal */
+    border-bottom: 0.22rem solid #000000; /* Línea blanca horizontal */
     width: 100%; /* Ajusta el ancho de la línea según sea necesario */
 }
 
@@ -542,6 +587,7 @@ main#carousel .button {
     background-image: url("../images/contacto.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    border-bottom: none;
 }
 
 .contacto {
@@ -576,11 +622,6 @@ footer {
 }
 
 /* Imágenes responsivas */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
 
 
 

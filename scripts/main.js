@@ -1,3 +1,22 @@
+ /*
+    Mensaje para navegación horizontal en smartphones
+*/
+    function checkOrientation() {
+        const rotateMessage = document.querySelector('.rotate-message');
+        if (window.innerHeight > window.innerWidth) {
+            rotateMessage.style.display = 'block';  // Mostrar el mensaje en modo vertical
+        } else {
+            rotateMessage.style.display = 'none';  // Ocultar el mensaje en modo horizontal
+        }
+    }
+
+    // Escuchar el cambio de orientación
+    window.addEventListener('resize', checkOrientation);
+
+    // Comprobar la orientación al cargar la página
+    document.addEventListener('DOMContentLoaded', checkOrientation);
+
+
 /*
     Selección de elementos HTML
 */
